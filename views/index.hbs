@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Grid Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .color-cell {
+            width: 100px;
+            height: 100px;
+            text-align:center;
+            margin: 5px;
+            display: inline-block;
+            font-size: 18px;
+        }
+        .blkfont{
+            color: black;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .whtefont{
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Color Grid Generator</h1>
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="selectNumber">Select a number:</label>
+                <select class="form-control" id="selectNumber" name="selectNumber">
+                    {{#each numbers}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Grid</button>
+        </form>
+
+        {{#if size}}
+            <div class="mt-4">
+                {{{colorGrid size}}}
+            </div>
+        {{/if}}
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
